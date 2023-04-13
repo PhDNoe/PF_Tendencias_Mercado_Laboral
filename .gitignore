@@ -2,3 +2,10 @@
 /data/glassdoor/*
 /data/clean_glassdoor.csv
 /data/clean_glassdoor_rename.csv
+/data/stackoverflow/*
+/metadata/*
+/data/clean_stackoverflow/clean_2018.csv
+/data/clean_stackoverflow/clean_2019.csv
+/data/clean_stackoverflow/clean_2020.csv
+/data/clean_stackoverflow/clean_2021.csv
+/data/clean_stackoverflow/clean_2022.csv
