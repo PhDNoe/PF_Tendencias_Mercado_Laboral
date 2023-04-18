@@ -11,6 +11,10 @@ CREATE DATABASE "PFJobTrends"
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
 
+-- Conect to db
+\c "PFJobTrends";
+
+
 -- Create table developer
 CREATE TABLE developer (
     id_dev INTEGER PRIMARY KEY,
@@ -29,8 +33,7 @@ CREATE TABLE job (
     id_job INTEGER PRIMARY KEY,
     CompanySize VARCHAR(50),
     Country VARCHAR(50),
-    Employment VARCHAR(50),
-    "DevType(Position)" VARCHAR(150),
+    Employment VARCHAR(50),    
     Currency VARCHAR(50),
     CurrencySymbol VARCHAR(20),
     Salary FLOAT,
@@ -71,6 +74,13 @@ CREATE TABLE platform (
     platform VARCHAR(50)
 );
 
+-- Create table dev_type (unique dev_type)
+CREATE TABLE dev_type(
+    id_dev_type	FLOAT PRIMARY KEY,
+    dev_type VARCHAR(50)
+);
+
+
 
 -- Create table exp-lang
 CREATE TABLE exp_lang(
@@ -101,6 +111,12 @@ CREATE TABLE exp_platform(
 );
 
 
+CREATE TABLE job_devtype(
+    id_job_devtype INTEGER PRIMARY KEY,
+    id_job INTEGER,
+    id_dev_type FLOAT
+);
+
 -- ***********************************************************************
 -- ADD FOREIGN KEYS
 ALTER TABLE developer
@@ -125,18 +141,23 @@ ALTER TABLE exp_platform
 ADD FOREIGN KEY (id_exp) REFERENCES experience (id_exp),
 ADD FOREIGN KEY (id_platform) REFERENCES platform (id_platform);
 
+ALTER TABLE job_devtype
+ADD FOREIGN KEY (id_job) REFERENCES job(id_job),
+ADD FOREIGN KEy (id_dev_type) REFERENCES dev_type(id_dev_type);
 
 -- Hacer esto que sigue desde psql y no desde PGADMIN
 
-\copy "language" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/language.csv' delimiter ',' CSV HEADER;
-\copy "database" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/database.csv' delimiter ',' CSV HEADER;
-\copy "framework" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/framework.csv' delimiter ',' CSV HEADER;
-\copy "platform" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/platform.csv' delimiter ',' CSV HEADER;
+\copy "language" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/language.csv' delimiter ',' CSV HEADER;
+\copy "database" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/database.csv' delimiter ',' CSV HEADER;
+\copy "framework" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/framework.csv' delimiter ',' CSV HEADER;
+\copy "platform" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/platform.csv' delimiter ',' CSV HEADER;
+\copy "dev_type" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/devtype.csv' delimiter ',' CSV HEADER;
+
 
 -- Error operating system  --> varchar(50) is not enough
 ALTER TABLE experience
 ALTER COLUMN OperatingSystem TYPE VARCHAR(100);
-\copy "experience" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/experience.csv' delimiter ',' CSV HEADER;
+\copy "experience" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/experience.csv' delimiter ',' CSV HEADER;
 
 -- Error DevType(Position) --> varchar(150) is not enough
 -- Error Employment --> varchar(50) is not enough
@@ -145,7 +166,8 @@ ALTER COLUMN "DevType(Position)" TYPE VARCHAR(1500);
 
 ALTER TABLE job
 ALTER COLUMN Employment TYPE VARCHAR(300);
-\copy "job" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/job.csv' delimiter ',' CSV HEADER;
+\copy "job" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/job.csv' delimiter ',' CSV HEADER;
+
 
 -- Due to Nan, id_lang is not integer rather float
 ALTER TABLE language
@@ -153,7 +175,8 @@ ALTER COLUMN id_lang TYPE FLOAT;
 
 ALTER TABLE exp_lang
 ALTER COLUMN id_lang TYPE FLOAT;
-\copy "exp_lang" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/exp_lang.csv' delimiter ',' CSV HEADER;
+\copy "exp_lang" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/exp_lang.csv' delimiter ',' CSV HEADER;
+
 
 -- Due to Nan, id_database is not integer rather float
 ALTER TABLE "database"
@@ -161,7 +184,7 @@ ALTER COLUMN id_db TYPE FLOAT;
 
 ALTER TABLE exp_db
 ALTER COLUMN id_database TYPE FLOAT;
-\copy "exp_db" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/exp_db.csv' delimiter ',' CSV HEADER;
+\copy "exp_db" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/exp_db.csv' delimiter ',' CSV HEADER;
 
 -- Due to Nan, id_framework is not integer rather float
 ALTER TABLE "framework"
@@ -169,7 +192,7 @@ ALTER COLUMN id_framework TYPE FLOAT;
 
 ALTER TABLE exp_framework
 ALTER COLUMN id_framework TYPE FLOAT;
-\copy "exp_framework" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/exp_framework.csv' delimiter ',' CSV HEADER;
+\copy "exp_framework" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/exp_framework.csv' delimiter ',' CSV HEADER;
 
 
 -- Due to Nan, id_plaform is not integer rather float
@@ -178,8 +201,10 @@ ALTER COLUMN id_platform TYPE FLOAT;
 
 ALTER TABLE exp_platform
 ALTER COLUMN id_platform TYPE FLOAT;
-\copy "exp_platform" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/exp_platform.csv' delimiter ',' CSV HEADER;
+\copy "exp_platform" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/exp_platform.csv' delimiter ',' CSV HEADER;
 
+
+\copy "job_devtype" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/job_devtype.csv' delimiter ',' CSV HEADER;
 
 -- Error edLevel --> vachar(50) is not enough
 ALTER TABLE developer
@@ -197,7 +222,7 @@ ALTER COLUMN Ethnicity TYPE VARCHAR(500);
 ALTER TABLE developer
 ALTER COLUMN Sexuality TYPE VARCHAR(200);
 
-\copy "developer" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/postgres_practice/data/final_tables/developer.csv' delimiter ',' CSV HEADER;
+\copy "developer" FROM 'C:/Users/kuens/Documents/.Pandas/.Henry/Data/PF/PF_TENDENCIAS_MERCADO_LABORAL/data/final_tables/developer.csv' delimiter ',' CSV HEADER;
 
 -- Use some queries
 
