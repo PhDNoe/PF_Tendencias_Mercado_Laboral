@@ -17,5 +17,6 @@
 /Automatization_with_Airlflow/Dockerfile
 /Automatization_with_Airlflow/dags/user_defined/db_credential_info.py
 /Automatization_with_Airlflow/logs
-/Automatization_with_Airlflow/plugins
+/Automatization_with_Airlflow/plugins1
+/Automatization_with_Airlflow/dags/dag_supabase_v2.py
 __pycache__
