@@ -65,8 +65,12 @@ La creación de un data warehouse en Supabase implica la creación de una base d
 <img src ="./imgs/DB_Relationship.png" />
 
 
-### Dashboards interactivos y KPI'
-- PowerBI
+### Dashboards interactivos y KPI': PowerBI
+
+<img src ="./imgs/dash1.jpg" />
+---
+
+<img src ="./imgs/dash2.jpg" />
 
 ### Automatización de carga de datos incremental
 - Máquina virtual de Ubuntu corriendo en Windows (WSL)
