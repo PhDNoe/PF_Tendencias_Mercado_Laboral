@@ -11,3 +11,11 @@
 /data/clean_stackoverflow/clean_2022.csv
 /data/clean_stackoverflow/Reserved_clean_2022.csv
 /data/final_tables
+/Auto/
+/Automatization_with_Airlflow/.env
+/Automatization_with_Airlflow/docker-compose.yaml
+/Automatization_with_Airlflow/Dockerfile
+/Automatization_with_Airlflow/dags/user_defined/db_credential_info.py
+/Automatization_with_Airlflow/logs
+/Automatization_with_Airlflow/plugins
+__pycache__
