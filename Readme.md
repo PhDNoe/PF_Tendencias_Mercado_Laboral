@@ -1,19 +1,26 @@
 ![divider](https://user-images.githubusercontent.com/7065401/52071927-c1cd7100-2562-11e9-908a-dde91ba14e59.png)
 
-# PENTABYTE SOLUTIONS
+# 🟥 BREAKING BARRIERS
+## Enhancing Gender Inclusion in IT Recruitment across LATAM 
+<br>
 
-## Quienes somos
+![divider](https://user-images.githubusercontent.com/7065401/52071927-c1cd7100-2562-11e9-908a-dde91ba14e59.png)
+
+
+## ✅ Quienes somos: PENTABYTE SOLUTIONS
 
 Somos una consultora especializada en Big Data y tecnología de la información. Brindamos servicios a otras compañías que requieren extraer informacion importante de datos desestructurados o provenientes de fuentes de información diversas para maximizar sus negocios.
 
----
+$$\color{#f542b3}\rule{550px}{4px}$$
 
-## Nuestra misión en este proyecto
+## ✅ Nuestra misión en este proyecto
 Desarrollar herramientas tecnológicas que les permitan a nuestro cliente (empresas de reclutamiento del área de IT) alcanzar sus objetivos.
 
 La empresa solicitante busca ser pionera en cuestiones de inclusión de género, específicamente en cuanto a la inclusión de mujeres y a la democratización de los puestos de IT tan demandados hoy en día. 
 
----
+$$\color{#f542b3}\rule{550px}{4px}$$
+## ✅ Deployment de nuestro producto
+[🟥 Breaking Barriers](https://phdnoe-pf-breaking-barriers-deployme-1-breaking-barriers-dhk1wn.streamlit.app/)
 
 ## Resumen del proyecto
 En este proyecto se generaron un conjunto de herramientas para facilitar a las empresas reclutadoras lograr sus objetivos respecto a la inclusión de mujeres en puestos de IT.
@@ -22,6 +29,8 @@ Las herramientas mas relevantes desarrolladas son:
 - Dahsboards interactivos para analizar información relacionada con puestos de trabajo, sueldos, porcentajes de mujeres en puestos IT, nivel educativo, etc. los 5 paises con mas puestos IT de la latinoamerica (Argentina, Chile, Mexico, Colombia y Perú)
 - Dahsboards interactivos para analizar información relacionada con puestos de trabajo, sueldos, porcentajes de mujeres en puestos IT, nivel educativo, etc. en las 5 potencias tecnológicas mas grandes (Estados Unidos, India, Canadá, Reino Unido y Alemania)
 - Modelos de predicción de ML para catalogar candidados y candidatas a los puestos mas solicitados.
+
+$$\color{#f542b3}\rule{550px}{4px}$$
 
 ### KPI's Utilizados
 
@@ -37,12 +46,14 @@ Se incluyen indicadores clave de desempeño (KPI’s) para medir:
 Estos KPI permitirán a la empresa de reclutamiento del área de IT en Latino América realizar ajustes y mejoras en el programa de inclusión de genero a medida que avanza el proceso.
 
 
----
+$$\color{#f542b3}\rule{550px}{4px}$$
+
 #### Fuentes de Información utilizadas
 
 > Las fuentes de información utilizadas para los dashboards son las encuestas de los útimos 5 años de Stackoverflow
 
-![divider](https://user-images.githubusercontent.com/7065401/52071927-c1cd7100-2562-11e9-908a-dde91ba14e59.png)
+
+$$\color{#f542b3}\rule{550px}{4px}$$
 
 ## Stack tecnológico utilizado
 
@@ -53,6 +64,7 @@ Estos KPI permitirán a la empresa de reclutamiento del área de IT en Latino Am
     - Numpy
     - Matplotlib
     - Seaborn
+
 
 ### Datawarehouse: **Supabase**
 
@@ -68,7 +80,7 @@ La creación de un data warehouse en Supabase implica la creación de una base d
 ### Dashboards interactivos y KPI': PowerBI
 
 <img src ="./imgs/dash1.jpg" />
----
+
 
 <img src ="./imgs/dash2.jpg" />
 
@@ -80,11 +92,15 @@ La creación de un data warehouse en Supabase implica la creación de una base d
     - Numpy
     - SQLAlchemy
 
+$$\color{#f542b3}\rule{550px}{4px}$$
+
 Video demostrativo de carga incremental:
 
 [Carga incremental de datos](https://www.youtube.com/watch?v=_XuUhEgKUV4)
 
-![divider](https://user-images.githubusercontent.com/7065401/52071927-c1cd7100-2562-11e9-908a-dde91ba14e59.png)
+$$\color{#f542b3}\rule{550px}{4px}$$
+
+
 ### Informacion adicional
 Link: [Notion-It-Job-Market-Trends](https://camiseta-blanca-poison.notion.site/IT-Job-Market-Trends-79fd9c2c1f714b76aa79b0837280768a)
 
